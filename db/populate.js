@@ -14,6 +14,7 @@ const populate = async (data) => {
     const chunkSize = 100;
     for (let i = 0; i < data.length; i += chunkSize) {
         const chunk = data.slice(i, i + chunkSize);
+        console.log(`Populating database... [${i}/${data.length}]`);
         await Card.create(chunk);
     }
 };
